@@ -9,8 +9,8 @@ indent() {
 }
 
 BUILD_DIR=$1
-#CACHE_DIR=$2
-#ENV_DIR=$3
+CACHE_DIR=$2
+ENV_DIR=$3
 
 arrow "Installing driver config"
 cp simba.snowflake.ini "${BUILD_DIR}/.apt/usr/lib/snowflake/odbc/lib/simba.snowflake.ini" | indent
@@ -19,4 +19,4 @@ cp odbcinst.ini "${BUILD_DIR}/.apt/usr/lib/snowflake/odbc/conf/odbcinst.ini" | i
 
 arrow "Adding profile.d script"
 mkdir -p "${BUILD_DIR}/.profile.d" | indent
-cp .profile.d/configure-snowflake-odbc.sh "${BUILD_DIR}/.profile.d" | indent
+cp .profile.d/snowflake-odbc.sh "${BUILD_DIR}/.profile.d" | indent
