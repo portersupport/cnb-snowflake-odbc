@@ -12,14 +12,15 @@ unixodbc
 unixodbc-dev
 https://sfc-repo.snowflakecomputing.com/odbc/linux/2.21.3/snowflake-odbc-2.21.3.x86_64.deb
 ```
-You can configure how do you want the credentials of connection, for this example adding ENV variables
+You can configure the credentials for your connection usign the following ENV variables
 
-SNOWFLAKE_USERNAME
-SNOWFLAKE_PASSWORD
-SNOWFLAKE_DATABASE
-SNOWFLAKE_SERVER
+* SNOWFLAKE_USERNAME
+* SNOWFLAKE_PASSWORD
+* SNOWFLAKE_DATABASE
+* SNOWFLAKE_SERVER
 
 ## CONNECTING TO SNOWFLAKE USING THE OBDC DRIVER & RUBY
+
 these tutorial is a copy of [snowflake connection with ruby tutorial](https://support.snowflake.net/s/article/connecting-to-snowflake-using-the-obdc-driver--ruby-on-rails-5)
 A connection to Snowflake can be configured using the Snowflake ODBC driver and the Ruby gem package 'Sequel', https://github.com/jeremyevans/sequel.
 
@@ -48,6 +49,11 @@ Where <snowflake dns> is the DNS entry from the odbc.ini file.
 Additional Information:
 
 Gem package 'dpi' relies on the 'deprecated' package version 2.0.1. It is incompatible with Rails 5 ('deprecated' > 3.0.1). See the following StackOverflow article for details: http://stackoverflow.com/questions/9456768/getting-undefined-method-deprecate-error-in-ruby-dbi-gem
+
+## HOW TO USE THESE CONNECTION
+```ruby
+db = Sequel.odbc('snowflake')
+```
 
 ## Connection with R&R and ActiveRecord
 [https://eng.localytics.com/connecting-to-snowflake-with-ruby-on-rails/](https://eng.localytics.com/connecting-to-snowflake-with-ruby-on-rails/) or check the PDF file attached
